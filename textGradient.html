@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css文字渐变</title>
+  <style>
+    .linegraid {
+      background: linear-gradient(to left,#fff 0%,#74b0ff 50%,#fff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: text 75s linear infinite;
+    }
+    @-webkit-keyframes text {
+        0% {
+            background-position-x: 0
+        }
+
+        50% {
+            background-position-x: 10000px
+        }
+
+        to {
+            background-position-x: 0
+        }
+    }
+    h3 {
+      font-size: 50px;
+      font-weight: bold;
+    }
+    body {
+      background-color: #51a9d6;
+    }
+  </style>
+</head>
+<body>
+    <h3 class="linegraid">css实现文字渐变</h3>
+</body>
+</html>
