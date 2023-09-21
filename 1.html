@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>科技感的按钮</title>
+  <style>
+    body {
+      background-color: #000;
+    }
+    .waitlist-button__button {
+      width: 300px;
+      border: 0;
+      background: none;
+    }
+
+    .waitlist-button-modal__button .button-component__label,
+    .waitlist-button__button .button-component__label {
+      position: relative;
+      font-family: IBM Plex Sans, sans-serif !important;
+      height: 40px;
+      width: 100%;
+      text-transform: unset;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 38px;
+      padding: 0;
+      vertical-align: middle;
+      color: var(--font-color-primary);
+      border-radius: 24px;
+      border: solid var(--theme-accent-color, #3f51b5);
+      border-width: 2px 0;
+      background-color: var(--theme-accent-color-transparent, #3f51b5);
+      overflow: hidden;
+      transition: background-color .6s, border-color .6s
+    }
+
+    .waitlist-button-modal__label-background,
+    .waitlist-button__label-background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom right, var(--general-scroll-gradient-color, #000), transparent 80%);
+      transition: .5s all ease;
+    }
+    .waitlist-button__label-background:hover {
+      background: linear-gradient(to top right, var(--general-scroll-gradient-color, #000), transparent 80%)
+    }
+    .waitlist-button__text {
+      color: #fff;
+    }
+    .box {
+      margin: 40px 0;
+    }
+    :root {
+      --theme-accent-color: #F45D64;
+      --theme-accent-color-transparent: rgba(244,93,100,0.45);
+      --general-scroll-gradient-color: rgba(0, 0, 0, 1);
+    }
+    .color1 {
+      color: #6306E6;
+    }
+    .color2 {
+      color: #F45D64;
+    }
+    .color3 {
+      color: #006aff;
+    }
+    div {
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <button class="waitlist-button__button">
+      <div class="button-component__label">
+        <div class="waitlist-button__label-background"><span class="waitlist-button__text">Join</span></div>
+      </div>
+    </button>
+  </div>
+  <button class="btn1 color1" >color1</button>
+  <button class="btn2 color2">color2</button>
+  <button class="btn3 color3">color3</button>
+  <script>
+      let btn1 = document.querySelector('.btn1')
+      let btn2 = document.querySelector('.btn2')
+      let btn3 = document.querySelector('.btn3')
+      btn1.addEventListener('click', function () {
+        document.documentElement.style.setProperty('--theme-accent-color', '#6306E6');
+        document.documentElement.style.setProperty('--theme-accent-color-transparent', 'rgba(99,6,230,0.45)');
+      })
+      btn2.addEventListener('click', function () {
+        document.documentElement.style.setProperty('--theme-accent-color', '#F45D64');
+        document.documentElement.style.setProperty('--theme-accent-color-transparent', 'rgba(244,93,100,0.45)');
+      })
+      btn3.addEventListener('click', function () {
+        document.documentElement.style.setProperty('--theme-accent-color', '#006aff');
+        document.documentElement.style.setProperty('--theme-accent-color-transparent', 'rgba(0,106,255,0.45)');
+      })
+    
+    
+  </script>
+</body>
+
+</html>
