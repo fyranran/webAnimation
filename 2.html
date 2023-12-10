@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文字划上去波浪线效果</title>
+  <style>
+    :root {
+      --color-new-green: #067A58;
+    }
+    .text-link {
+      color: var(--color-new-green) !important;
+      overflow: visible;
+      background-image: none;
+      background-position: 0 bottom;
+      padding-bottom: 3px;
+      background-repeat: repeat-x;
+      background-size: 20px 5px;
+      -webkit-animation: cDoKFg 0.5s linear infinite;
+      animation: cDoKFg 0.5s linear infinite;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /*!sc*/
+    .text-link:hover {
+      background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0ic3F1aWdnbGUtc3ZnIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIgogIHhtbG5zOmV2PSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL3htbC1ldmVudHMiIHZpZXdCb3g9IjAgMCAyMCA0Ij4KICA8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMwNjdBNTgiIHN0cm9rZS13aWR0aD0iMiIgY2xhc3M9InNxdWlnZ2xlIgogICAgZD0iTTAsMy41IGMgNSwwLDUsLTMsMTAsLTMgcyA1LDMsMTAsMyBjIDUsMCw1LC0zLDEwLC0zIHMgNSwzLDEwLDMiPjwvcGF0aD4KPC9zdmc+);
+    }
+
+    /*!sc*/
+    @-webkit-keyframes cDoKFg {
+      from {
+        background-position: 0 bottom;
+      }
+
+      to {
+        background-position: 20px bottom;
+      }
+    }
+
+    /*!sc*/
+    @keyframes cDoKFg {
+      from {
+        background-position: 0 bottom;
+      }
+
+      to {
+        background-position: 20px bottom;
+      }
+    }
+
+    /*!sc*/
+  </style>
+</head>
+
+<body>
+  <!-- https://github.com/fyranran/webAnimation.git -->
+  <a class="text-link">我的是短发</a>
+
+</body>
+
+</html>

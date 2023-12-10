@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css 鼠标滑过水波效果</title>
+  <style>
+    .box {
+      width: 500px;
+      height: 400px;
+      overflow: hidden;
+      
+      background: rgb(203, 199, 199);
+      position: relative;
+    }
+    .box .imgtran {
+      max-width:100%;display:block;position:absolute;
+      top: 0px;
+      left: 0;
+      clip-path: circle(0% at center);
+    }
+    .box img {
+      transition: .5s all ease;
+      width: 100%;
+    }
+    .box:hover .img {
+      transform: scale(1.1);
+     
+    }
+    .box:hover .imgtran {
+      clip-path: circle(100% at center);
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <img class="img" src="https://cutesolution.com/html/techvio/assets/img/about.jpg" alt="">
+    <img class="imgtran"
+      src="https://cutesolution.com/html/techvio/assets/img/about.jpg"
+      >
+  </div>
+
+ 
+</body>
+</html>
