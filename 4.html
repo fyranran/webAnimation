@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css 立体灯光射线效果</title>
+  <style>
+    body {
+      background-color: #51a9d6;
+    }
+
+    .bottom_light {
+      position: absolute;
+      height: 300px;
+      width: 200px;
+      left: 50%;
+      margin-left: -100px;
+      bottom: 250px;
+      z-index: 2;
+      transform-style: preserve-3d;
+      transform: rotateX(-15deg);
+      animation: 30s bottom_light linear infinite;
+
+    }
+
+    .bottom_light .linght_origin {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      position: absolute;
+      left: 30px;
+      bottom: 0;
+      background: #fff;
+      transform: rotateX(90deg) translateZ(-141px);
+      transform-origin: center;
+      filter: blur(5px);
+    }
+
+    .bottom_light span {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      display: block;
+      width: 2px;
+      height: 300px;
+      /* 光线的高度 */
+      background: linear-gradient(to top, rgba(255, 255, 255, 1) 70%, transparent);
+      transform: rotateY(45deg) translateZ(100px);
+      transform-origin: center bottom;
+
+      transition: 1s all ease;
+      animation-delay: 1s;
+      filter: blur(2px);
+
+    }
+
+    .bottom_light span::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      /* 光线的长度，可以根据需要调整 */
+      height: 100%;
+      transition: 1s all ease;
+
+      background: linear-gradient(to top, rgba(255, 255, 255, 1) 50%, transparent);
+      /* 使用渐变创建光线效果 */
+
+      filter: blur(8px);
+    }
+
+    @keyframes bottom_light {
+      from {
+        transform: rotateX(-15deg) rotateY(0);
+      }
+
+      to {
+        transform: rotateX(-15deg) rotateY(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bottom_light">
+    <div class="linght_origin"></div>
+    <!-- <span v-for='(item,i) in lightarr' :key="i"></span> -->
+  </div>
+  <script>
+    window.onload = () => {
+      let box = document.querySelector('.bottom_light')
+      let html = ``
+      let spanlist = ``
+      for (let i = 0; i < 50; i++) {
+        spanlist += `<span></span>`
+      }
+      html = `<div class="linght_origin"></div>${spanlist}`
+      box.innerHTML = html
+      let lightlist = document.querySelectorAll('.bottom_light span');
+
+      for (let i = 0; i < lightlist.length; i++) {
+        // lightlist[i].style.transform=`rotate(${80-i*3}deg) scale(.5,1)`
+        lightlist[i].style.transform = `rotateY(${i * 9}deg) rotateX(-45deg) translateZ(100px)`
+        lightlist[i].style.animationDelay = `${i * 0.1}`
+      }
+    }
+  </script>
+</body>
+
+</html>
