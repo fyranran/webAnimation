@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css 卡片周围光线移动效果</title>
+  <style>
+    body{
+      background-color: rgb(37, 36, 36);
+    }
+    .card {
+       width: 500px;
+       height: 800px;
+       background: #666;
+       border-radius: 10px;
+       position: relative;
+       padding: 2px;
+       margin: 50px auto 0 auto;
+       overflow: hidden;
+    }
+    .card .content {
+      width: calc(100% - 0px);
+      height: calc(100% - 0px);
+    
+      background: #000;
+      border-radius: 10px;
+      position: relative;
+      z-index: 2;
+    }
+    .card .light {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100px;
+      height: 200px;
+      background: radial-gradient(circle at center left,#fff,rgba(255,255,255,0) 75%);
+      filter:blur(3px);
+      z-index: 1;
+      transform-origin: left center;
+    }
+    .light1 {
+      animation: 1.5s move1 linear infinite ;
+    }
+    .card .light2 {
+      left: 0;
+      top: auto;
+      bottom: 0;
+      width: 200px;
+      height: 100px;
+      background: radial-gradient(circle at bottom center,#fff,rgba(255,255,255,0) 75%);
+      animation: 1.5s move2 linear infinite ;
+    }
+   .card .light3 {
+      left: auto;
+      top: auto;
+      bottom: 0;
+      right: 0;
+      width: 100px;
+      height: 200px;
+      background: radial-gradient(circle at right center,#fff,rgba(255,255,255,0) 75%);
+      animation: 1.5s move3 linear infinite ;
+
+    }
+    .card .light4 {
+      left: auto;
+      top: 0;
+      right: 0;
+      width: 200px;
+      height: 100px;
+      background: radial-gradient(circle at top center,#fff,rgba(255,255,255,0) 75%);
+      animation: 1.5s move4 linear infinite ;
+    }
+    @keyframes move1 {
+      0%{ top:-100px}
+      100%{ top: calc(100% - 100px);}
+    }
+    @keyframes move2 {
+      0%{ left:-100px}
+      100%{ left: calc(100% - 100px)}
+    }
+    @keyframes move3 {
+      0%{ bottom:-100px}
+      100%{ bottom: calc(100% - 100px)}
+    }
+    @keyframes move4 {
+      0%{ right:-100px}
+      100%{ right: calc(100% - 100px)}
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="content"></div>
+    <div class="light light1"></div>
+  </div>
+  <script>
+    let box = document.querySelector('.light')
+    let i = 1
+    setInterval(()=>{
+      let j = (i % 4)+1
+      box.setAttribute('class','light light'+j)
+      i++
+    },1500)
+  </script>
+</body>
+</html>
