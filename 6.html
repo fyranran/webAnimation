@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css hover到卡片效果</title>
+  <style>
+    :root {
+      --yellowHover: #f4c529;
+      --black: #191919;
+      --yellow: #ffd64d;
+      --orange: #ff710a;
+      --white: #f8f8f8;
+      --full-white: #fff;
+    }
+
+    .card {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 160px;
+      height: 160px;
+      border: 1px solid rgba(38, 38, 38, .15);
+      background: linear-gradient(-120deg, var(--full-white) 30%, var(--white), var(--full-white) 70%) bottom/400% 100%;
+        background-position: 0
+    }
+
+    .card:hover {
+      animation: _ngcontent-jsdaddy-updated-corporate-site-c2241553509_shimmer .3s ease-out
+    }
+    .list {
+      display: flex;
+    }
+    .list .card {
+      margin-right: 20px;
+    }
+    @keyframes _ngcontent-jsdaddy-updated-corporate-site-c2241553509_shimmer {
+      0% {
+        background: linear-gradient(-120deg, var(--full-white) 30%, var(--white), var(--full-white) 70%) bottom/400% 100%;
+        background-position: 100%
+      }
+
+      to {
+        background: linear-gradient(-120deg, var(--full-white) 30%, var(--white), var(--full-white) 70%) bottom/400% 100%;
+        background-position: 0
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="list">
+    <div class="card">90</div>
+    <div class="card">90</div>
+    <div class="card">90</div>
+    <div class="card">90</div>
+    <div class="card">90</div>
+  </div>
+  
+</body>
+
+</html>
