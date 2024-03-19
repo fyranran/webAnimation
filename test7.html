@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>思维导图示例</title>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <style>
+    .node circle {
+      fill: #fff;
+      stroke: steelblue;
+      stroke-width: 3px;
+    }
+
+    .node text {
+      font: 12px sans-serif;
+    }
+
+    .link {
+      fill: none;
+      stroke: #ccc;
+      stroke-width: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    // 你的JSON数据
+    const treeData = {
+      "name": "Root",
+      "children": [
+        {
+          "name": "Branch 1",
+          "children": [
+            { "name": "Leaf 1" },
+            { "name": "Leaf 2" }
+          ]
+        },
+        { "name": "Branch 2" }
+      ]
+    };
+
+    // 设置尺寸
+    const margin = { top: 20, right: 120, bottom: 20, left: 120 },
+      width = 960 - margin.right - margin.left,
+      height = 500 - margin.top - margin.bottom;
+
+    // 构建树布局
+    const treemap = d3.tree().size([height, width]);
+    const nodes = d3.hierarchy(treeData);
+    nodes.descendants().forEach((d, i) => {
+      d.id = i;
+      d._children = d.children;
+    });
+    const tree = treemap(nodes);
+
+    // 创建 svg 容器
+    const svg = d3.select("body").append("svg")
+      .attr("width", width + margin.right + margin.left)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    // 创建树的连接线
+    const link = svg.selectAll(".link")
+      .data(tree.links())
+      .enter().append("path")
+      .attr("class", "link")
+      .attr("d", d3.linkHorizontal()
+        .x(function (d) { return d.y; })
+        .y(function (d) { return d.x; }));
+
+    // 创建每个节点
+    const node = svg.selectAll(".node")
+      .data(nodes.descendants())
+      .enter().append("g")
+      .attr("class", "node")
+      .attr("transform", function (d) {
+        return "translate(" + d.y + "," + d.x + ")";
+      });
+
+    // 添加圆形来表示节点
+    node.append("circle")
+      .attr("r", 10);
+
+    // 添加文字
+    node.append("text")
+      .attr("dy", ".35em")
+      .attr("x", function (d) { return d.children ? -13 : 13; })
+      .style("text-anchor", function (d) { return d.children ? "end" : "start"; })
+      .text(function (d) { return d.data.name; });
+  </script>
+</body>
+
+</html>

@@ -16,6 +16,7 @@
        position: relative;
        padding: 2px;
        margin: 50px auto 0 auto;
+       overflow: hidden;
     }
     .card .content {
       width: calc(100% - 0px);
@@ -36,7 +37,6 @@
       filter:blur(3px);
       z-index: 1;
       transform-origin: left center;
-      transition: .5s all ease;
     }
     .light1 {
       animation: 1.5s move1 linear infinite ;
@@ -71,20 +71,20 @@
       animation: 1.5s move4 linear infinite ;
     }
     @keyframes move1 {
-      0%{ top:0px; }
-      100%{ top: calc(100% - 200px); }
+      0%{ top:-100px}
+      100%{ top: calc(100% - 100px);}
     }
     @keyframes move2 {
-      0%{ left:0px}
-      100%{ left: calc(100% - 200px); }
+      0%{ left:-100px}
+      100%{ left: calc(100% - 100px)}
     }
     @keyframes move3 {
-      0%{ bottom:0px}
-      100%{ bottom: calc(100% - 200px); }
+      0%{ bottom:-100px}
+      100%{ bottom: calc(100% - 100px)}
     }
     @keyframes move4 {
-      0%{ right:0px}
-      100%{ right: calc(100% - 200px); }
+      0%{ right:-100px}
+      100%{ right: calc(100% - 100px)}
     }
   </style>
 </head>

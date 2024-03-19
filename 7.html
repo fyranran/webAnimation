@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css 文字径向渐变-伪类特效-下划线</title>
+  <style>
+    @font-face {
+      font-display: swap;
+      font-family: Quicksand;
+      font-style: normal;
+      font-weight: 700;
+      src: url(../fonts/Quicksand.woff2) format("woff2")
+    }
+
+    @font-face {
+      font-display: swap;
+      font-family: MonExt;
+      font-style: normal;
+      font-weight: 700;
+      src: url(../fonts/MonExt.woff2) format("woff2")
+    }
+
+    body {
+      background-color: #51a9d6;
+    }
+
+    .card {
+      --tw-bg-opacity: .75;
+      background-color: #e6e6e6bf;
+      min-height: 200px;
+      padding: 30px 20px;
+      border-radius: 30px;
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    h3 {
+      background-clip: text;
+      background-image: radial-gradient(50% 200% at 40% 100%, #b1a2c5 30%, #fff 60%);
+      background-repeat: no-repeat;
+      color: transparent;
+      background-image: radial-gradient(50% 100% at 40% 60%, #9589b1 30%, #000 60%);
+      font-family: Quicksand;
+      font-size: 40px;
+    }
+
+    .glitch {
+      animation: glitch-skew 25s linear infinite alternate-reverse;
+      position: relative;
+      text-transform: uppercase;
+      font-size: 3.75rem;
+      font-family: MonExt;
+      color: #fff;
+      text-align: center;
+    }
+
+    .glitch:before {
+      animation: glitch-anim 10s linear infinite alternate-reverse;
+      left: 2px;
+      text-shadow: -2px 0 #b1a2c5
+    }
+
+    .glitch:after,
+    .glitch:before {
+      clip: rect(44px, 450px, 56px, 0);
+      content: attr(data-text);
+      height: 100%;
+      position: absolute;
+      top: 0;
+      width: 100%
+    }
+
+    .glitch:after {
+      animation: glitch-anim2 10s linear infinite alternate-reverse;
+      left: -2px;
+      text-shadow: -2px 0 #b1a2c5, 2px 2px #ff00c1
+    }
+
+    @keyframes glitch-anim {
+      0% {
+        clip: rect(81px, 9999px, 21px, 0);
+        transform: skew(.4deg)
+      }
+
+      5% {
+        clip: rect(20px, 9999px, 12px, 0);
+        transform: skew(.76deg)
+      }
+
+      10% {
+        clip: rect(39px, 9999px, 71px, 0);
+        transform: skew(.69deg)
+      }
+
+      15% {
+        clip: rect(6px, 9999px, 27px, 0);
+        transform: skew(.39deg)
+      }
+
+      20% {
+        clip: rect(7px, 9999px, 77px, 0);
+        transform: skew(.44deg)
+      }
+
+      25% {
+        clip: rect(52px, 9999px, 65px, 0);
+        transform: skew(.33deg)
+      }
+
+      30% {
+        clip: rect(39px, 9999px, 83px, 0);
+        transform: skew(.61deg)
+      }
+
+      35% {
+        clip: rect(95px, 9999px, 86px, 0);
+        transform: skew(.95deg)
+      }
+
+      40% {
+        clip: rect(13px, 9999px, 37px, 0);
+        transform: skew(.9deg)
+      }
+
+      45% {
+        clip: rect(33px, 9999px, 68px, 0);
+        transform: skew(.22deg)
+      }
+
+      50% {
+        clip: rect(17px, 9999px, 13px, 0);
+        transform: skew(.37deg)
+      }
+
+      55% {
+        clip: rect(12px, 9999px, 41px, 0);
+        transform: skew(.9deg)
+      }
+
+      60% {
+        clip: rect(53px, 9999px, 62px, 0);
+        transform: skew(.92deg)
+      }
+
+      65% {
+        clip: rect(43px, 9999px, 51px, 0);
+        transform: skew(.12deg)
+      }
+
+      70% {
+        clip: rect(69px, 9999px, 8px, 0);
+        transform: skew(.65deg)
+      }
+
+      75% {
+        clip: rect(75px, 9999px, 38px, 0);
+        transform: skew(.24deg)
+      }
+
+      80% {
+        clip: rect(53px, 9999px, 90px, 0);
+        transform: skew(.75deg)
+      }
+
+      85% {
+        clip: rect(2px, 9999px, 26px, 0);
+        transform: skew(.68deg)
+      }
+
+      90% {
+        clip: rect(30px, 9999px, 5px, 0);
+        transform: skew(.36deg)
+      }
+
+      95% {
+        clip: rect(74px, 9999px, 4px, 0);
+        transform: skew(.91deg)
+      }
+    }
+
+    @keyframes glitch-anim2 {
+      0% {
+        clip: rect(98px, 9999px, 88px, 0);
+        transform: skew(.91deg)
+      }
+
+      5% {
+        clip: rect(5px, 9999px, 79px, 0);
+        transform: skew(.3deg)
+      }
+
+      10% {
+        clip: rect(42px, 9999px, 92px, 0);
+        transform: skew(.4deg)
+      }
+
+      15% {
+        clip: rect(56px, 9999px, 40px, 0);
+        transform: skew(.05deg)
+      }
+
+      20% {
+        clip: rect(40px, 9999px, 14px, 0);
+        transform: skew(.71deg)
+      }
+
+      25% {
+        clip: rect(24px, 9999px, 31px, 0);
+        transform: skew(.12deg)
+      }
+
+      30% {
+        clip: rect(13px, 9999px, 65px, 0);
+        transform: skew(.91deg)
+      }
+
+      35% {
+        clip: rect(8px, 9999px, 73px, 0);
+        transform: skew(.93deg)
+      }
+
+      40% {
+        clip: rect(88px, 9999px, 29px, 0);
+        transform: skew(.57deg)
+      }
+
+      45% {
+        clip: rect(17px, 9999px, 49px, 0);
+        transform: skew(.63deg)
+      }
+
+      50% {
+        clip: rect(48px, 9999px, 46px, 0);
+        transform: skew(.73deg)
+      }
+
+      55% {
+        clip: rect(52px, 9999px, 53px, 0);
+        transform: skew(.21deg)
+      }
+
+      60% {
+        clip: rect(67px, 9999px, 56px, 0);
+        transform: skew(.4deg)
+      }
+
+      65% {
+        clip: rect(47px, 9999px, 58px, 0);
+        transform: skew(.94deg)
+      }
+
+      70% {
+        clip: rect(2px, 9999px, 83px, 0);
+        transform: skew(.42deg)
+      }
+
+      75% {
+        clip: rect(34px, 9999px, 91px, 0);
+        transform: skew(.92deg)
+      }
+
+      80% {
+        clip: rect(69px, 9999px, 92px, 0);
+        transform: skew(.95deg)
+      }
+
+      85% {
+        clip: rect(7px, 9999px, 94px, 0);
+        transform: skew(.52deg)
+      }
+
+      90% {
+        clip: rect(2px, 9999px, 43px, 0);
+        transform: skew(.8deg)
+      }
+
+      95% {
+        clip: rect(79px, 9999px, 25px, 0);
+        transform: skew(.37deg)
+      }
+    }
+
+    @keyframes glitch-skew {
+      0% {
+        transform: skew(1deg)
+      }
+
+      10% {
+        transform: skew(-2deg)
+      }
+
+      20% {
+        transform: skew(0)
+      }
+
+      30% {
+        transform: skew(-4deg)
+      }
+
+      40% {
+        transform: skew(5deg)
+      }
+
+      50% {
+        transform: skew(-4deg)
+      }
+
+      60% {
+        transform: skew(5deg)
+      }
+
+      70% {
+        transform: skew(2deg)
+      }
+
+      80% {
+        transform: skew(-3deg)
+      }
+
+      90% {
+        transform: skew(0)
+      }
+    }
+
+    .line {
+      text-decoration-line: underline;
+      text-decoration-style: wavy;
+      text-underline-offset: 8px;
+      text-decoration-thickness: 2px;
+      font-family: Quicksand;
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="glitch" data-text="Portfolio">Portfolio</h1>
+  <div class="card">
+    <h3>Realizziamo applicativi software di valore, studiati sulle reali esigenze del Cliente, per creare valore in
+      ciascuna
+      realtà.</h3>
+  </div>
+  <span class="line">Ogni avventura inizia con un primo passo</span>
+</body>
+
+</html>
